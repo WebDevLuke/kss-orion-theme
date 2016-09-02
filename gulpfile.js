@@ -66,10 +66,10 @@ gulp.task('copyIMG', function() {
 	.pipe(gulp.dest('dist/img/'));
 });
 
-// Copy Template Config
-gulp.task('copyConfig', function() {
+// Copy Package JSON to dist file as it needs the link to the template config is needed by kss
+gulp.task('copyPackage', function() {
 	// Copy all non-directory files
-	gulp.src('dev/template_config.js')
+	gulp.src('package.json')
 	.pipe(gulp.dest('dist/'));
 });
 
@@ -116,7 +116,7 @@ gulp.task('build',function() {
 		// Delete Dist Folder
 		"deleteDist",	
 		// Run other tasks asynchronously 
-		["copyHTML", "copyJS", "copyIMG", "sass", "copyConfig"]
+		["copyHTML", "copyJS", "copyIMG", "sass", "copyPackage"]
 	);
 });
 
