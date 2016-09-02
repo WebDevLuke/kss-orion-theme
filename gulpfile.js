@@ -59,18 +59,18 @@ gulp.task('copyJS', function() {
 	.pipe(gulp.dest('dist/js/'));
 });
 
-// Copy Template Config
-gulp.task('copyConfig', function() {
-	// Copy all non-directory files
-	gulp.src('dev/js/template_config.js')
-	.pipe(gulp.dest('dist/'));
-});
-
 // Copy IMG files
 gulp.task('copyIMG', function() {
 	// Copy all non-directory files
 	gulp.src('dev/img/*.+(png|jpg|gif|svg)')
 	.pipe(gulp.dest('dist/img/'));
+});
+
+// Copy Template Config
+gulp.task('copyConfig', function() {
+	// Copy all non-directory files
+	gulp.src('dev/template_config.js')
+	.pipe(gulp.dest('dist/'));
 });
 
 /*
@@ -87,7 +87,6 @@ gulp.task('sass', function () {
 	.on('error', sass.logError)
 	.pipe(gulp.dest('./dist/css/'));
 });
-
 
 /*
 |--------------------------------------------------------------------
