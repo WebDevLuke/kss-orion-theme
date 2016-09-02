@@ -48,7 +48,7 @@ gulp.task('deleteDist', function(){
 // Copy HTML files
 gulp.task('copyHTML', function() {
 	// Copy all non-directory files
-	gulp.src('dev/html/*.+(html)')
+	gulp.src('dev/html/*.+(html|md)')
 	.pipe(gulp.dest('dist/'));
 });
 
