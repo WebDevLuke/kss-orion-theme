@@ -107,15 +107,13 @@ gulp.task('sass', function () {
 // WATCH FUNCTION
 gulp.task("watch", function() {
 	// HTML
-	gulp.watch('dev/html/**/*.html',['html']);
+	gulp.watch('dev/html/**/*.html',['copyHTML']);
 	// Images
-	gulp.watch('dev/img/*.+(png|jpg|gif|svg)',['images']);
-	// Watch for Breakpoint JS changes and compile SASS
-	gulp.watch('dev/data/breakpoints.json',['sass']);
+	gulp.watch('dev/img/*.+(png|jpg|gif|svg)',['copyIMG']);
 	// SASS
 	gulp.watch('dev/sass/**/*.scss',['sass']);
 	// JS
-	gulp.watch('dev/js/**/*.js',['js']);
+	gulp.watch('dev/js/**/*.js',['copyJS']);
 });
 
 // BUILD FUNCTION
