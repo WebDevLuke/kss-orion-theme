@@ -9,7 +9,7 @@
     "type": "git",
     "url": "https://github.com/WebDevLuke/kss-orion-theme"
   },
-  "main": "js/template_config.js",
+  "main": "template_config.js",
   "devDependencies": {
     "del": "^2.2.2",
     "gulp": "^3.9.1",

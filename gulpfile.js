@@ -52,25 +52,33 @@ gulp.task('copyHTML', function() {
 	.pipe(gulp.dest('dist/'));
 });
 
-// Copy JS files
-gulp.task('copyJS', function() {
-	// Copy all non-directory files
-	gulp.src('dev/js/*.+(js)')
-	.pipe(gulp.dest('dist/js/'));
-});
-
-// Copy IMG files
-gulp.task('copyIMG', function() {
-	// Copy all non-directory files
-	gulp.src('dev/img/*.+(png|jpg|gif|svg)')
-	.pipe(gulp.dest('dist/img/'));
-});
 
 // Copy Package JSON to dist file as it needs the link to the template config is needed by kss
 gulp.task('copyPackage', function() {
 	// Copy all non-directory files
 	gulp.src('package.json')
 	.pipe(gulp.dest('dist/'));
+});
+
+// Copy template to public folder
+gulp.task('copyTemplate', function() {
+	// Copy all non-directory files
+	gulp.src('dev/template_config.js')
+	.pipe(gulp.dest('dist/'));
+});
+
+// Copy assets to public folder
+gulp.task('copyJS', function() {
+	// Copy all non-directory files
+	gulp.src('dev/js/*.+(js)')
+	.pipe(gulp.dest('dist/public/'));
+});
+
+// Copy IMG files
+gulp.task('copyIMG', function() {
+	// Copy all non-directory files
+	gulp.src('dev/img/*.+(png|jpg|gif|svg)')
+	.pipe(gulp.dest('dist/public/'));
 });
 
 /*
@@ -85,7 +93,7 @@ gulp.task('sass', function () {
 	.pipe(gulpif(minify, sass({outputStyle: 'compressed', precision: 8}), sass({outputStyle: 'expanded', precision: 8})))
 	.pipe(gulpif(minify, rename({ suffix: '.min' })))
 	.on('error', sass.logError)
-	.pipe(gulp.dest('./dist/css/'));
+	.pipe(gulp.dest('./dist/public/'));
 });
 
 /*
@@ -116,7 +124,7 @@ gulp.task('build',function() {
 		// Delete Dist Folder
 		"deleteDist",	
 		// Run other tasks asynchronously 
-		["copyHTML", "copyJS", "copyIMG", "sass", "copyPackage"]
+		["copyHTML", "copyJS", "copyIMG", "sass", "copyPackage", "copyTemplate"]
 	);
 });
 
