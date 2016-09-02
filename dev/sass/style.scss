@@ -3,18 +3,20 @@
 // ------------------------------------------------------------------------------
 
 $kss-colors-background: #fff;
-$kss-colors-heading: #444;
+$kss-colors-heading: #2b2b2b;
 
 $kss-colors-body: #2b2b2b;
 
+$kss-colors-body-light:#929292;
+
 $kss-colors-link: $kss-colors-body;
 $kss-colors-link-visited: $kss-colors-body;
-$kss-colors-link-hover: lighten($kss-colors-link, 20%);
+$kss-colors-link-hover: $kss-colors-body;
 $kss-colors-link-active: $kss-colors-body;
 
 $kss-colors-quotes: #666;
 $kss-border-color: #cecece;
-$kss-accent-bg: #eee;
+$kss-accent-bg: #f6f6f6;
 
 $kss-font-body: Helvetica, 'Helvetica Neue', Arial, sans-serif;
 $kss-font-code: Menlo, 'Ubuntu Mono', 'Lucida Console', 'Courier New', Courier, monospace;
@@ -168,16 +170,22 @@ $kss-nav-delimiter: ") ";
 
 #kss-node {
 	margin: 0;
-	padding: 20px;
 	background: #fff;
+
+	.kss-body-container {
+		position:relative;
+		min-height:100vh;
+	}
 
 	.kss-main {
 		width: 100%;
 		margin: 0 auto;
+		padding:15px;
 	}
 
 	.kss-sidebar {
 		border-bottom:1px solid $kss-border-color;
+		margin-bottom:15px;
 	}
 }
 
@@ -188,7 +196,6 @@ $kss-nav-delimiter: ") ";
 		
 		.kss-main,
 		.kss-sidebar {
-			float: left;
 			margin-right: -100%;
 			box-sizing: border-box;
 		}
@@ -200,12 +207,13 @@ $kss-nav-delimiter: ") ";
 		}
 
 		.kss-sidebar {
-			position: fixed;
+			position: absolute;
 			width: 20%;
 			height: 100%;
 			overflow: auto;
 			border-right:1px solid $kss-border-color;
 			border-bottom: 0;
+			margin-bottom:0;
 		}
 
 	}
@@ -234,10 +242,17 @@ $kss-nav-delimiter: ") ";
 
 	.kss-nav {
 		text-transform:capitalize;
+		padding:0 0 30px 0;
+	}
+
+	.kss-header {
+		padding:30px 15px 15px 15px;
 	}
 
 	.kss-doc-title {
-		margin: 0;
+		font-size: 1.5em;
+		margin:0;
+		text-align:center;
 	}
 
 	.kss-header__logo {
@@ -248,14 +263,13 @@ $kss-nav-delimiter: ") ";
 	}
 
 	.kss-nav__menu {
-		padding: 0;
+		padding: 0 15px;
 		margin:0;
 		list-style-type: none;
 	}
 
 	.kss-nav__menu-item {
-		display: inline-block;
-		padding-right: $kss-vertical-rhythm;
+		text-align:center;
 	}
 
 	.kss-nav__menu-child {
@@ -275,8 +289,9 @@ $kss-nav-delimiter: ") ";
 @media screen and (min-width: 769px) {
 
 	#kss-node {
-		.kss-doc-title {
-			font-size: 1.5em;
+
+		.kss-nav {
+			padding:0;
 		}
 
 		.kss-header {
@@ -284,20 +299,30 @@ $kss-nav-delimiter: ") ";
 			text-align:center; 
 		}
 
+		.kss-nav__menu {
+			padding:0;
+		}
+
 		.kss-nav__menu-item {
 			display: list-item;
 			padding-right: 0;
+			text-align:left;
 
 			.kss-nav__menu-item__link {
 				display:block;
 				padding:20px;
 				border-top:1px solid $kss-border-color;
+				font-weight:bold;
 			}
 
 		}
 
-		.kss-nav__menu-item.is-active .kss-nav__menu-item__link {
-			background:$kss-accent-bg;
+		// .kss-nav__menu-item.is-active, .kss-nav__menu-item:hover {
+		// 	background:$kss-accent-bg;
+		// }
+
+		.kss-nav__menu-item.is-active .kss-nav__menu-child-item__link:hover {
+			text-decoration:underline;
 		}
 
 		.kss-nav__menu-item:last-child {
@@ -308,13 +333,18 @@ $kss-nav-delimiter: ") ";
 			display: block;
 			list-style-type: none; 
 			margin: 0;
-			padding:20px;
+			padding:0 20px 20px 20px;
 
 			.kss-nav__menu-child-item__link {
-				display:block;
+				display:inline-block;
 				padding:5px 0;
 			}
+
 		}
+
+		.kss-nav__menu-child-item:first-child .kss-nav__menu-child-item__link {
+			padding-top:0;
+		}	
 
 		.kss-nav__ref:after {
 			content: $kss-nav-delimiter;
@@ -352,7 +382,8 @@ $kss-nav-delimiter: ") ";
 		display: block;
 		font-size: $kss-font-size;
 		line-height: $kss-font-size;
-		color: #666;
+		color:$kss-colors-body-light;
+		font-weight:300;
 
 		&:before {
 			content: 'Section ';
@@ -362,22 +393,23 @@ $kss-nav-delimiter: ") ";
 		display: block;
 		color: $kss-colors-heading;
 		text-decoration: none;
+		text-transform:capitalize;
+		font-size:1.5rem;
 
 		&:hover,
 		&:focus,
 		&:active {
 			color: $kss-colors-link;
 
-			@media screen and (min-width: 607px) {
-				.kss-title__permalink-hash {
-					display: inline;
-				}
-			}
+			// @media screen and (min-width: 607px) {
+			// 	.kss-title__permalink-hash {
+			// 		display: inline;
+			// 	}
+			// }
 		}
 	}
 	.kss-title__permalink-hash {
 		display: none;
-		color: #ccc;
 	}
 
 	.kss-parameters {
@@ -513,4 +545,16 @@ $kss-nav-delimiter: ") ";
 			background: #fcfcfc;
 		}
 	}
+}
+
+@media screen and (min-width: 769px) {
+
+	#kss-node {
+
+		.kss-title__permalink {
+			font-size:inherit;
+		}
+
+	}
+
 }
