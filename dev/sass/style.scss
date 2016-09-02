@@ -6,7 +6,6 @@ $kss-colors-background: #fff;
 $kss-colors-heading: #444;
 
 $kss-colors-body: #2b2b2b;
-$kss-colors-body-light: lighten($kss-colors-body, 30%);
 
 $kss-colors-link: $kss-colors-body;
 $kss-colors-link-visited: $kss-colors-body;
@@ -14,7 +13,8 @@ $kss-colors-link-hover: lighten($kss-colors-link, 20%);
 $kss-colors-link-active: $kss-colors-body;
 
 $kss-colors-quotes: #666;
-$kss-border-color: #e4e4e4;
+$kss-border-color: #cecece;
+$kss-accent-bg: #eee;
 
 $kss-font-body: Helvetica, 'Helvetica Neue', Arial, sans-serif;
 $kss-font-code: Menlo, 'Ubuntu Mono', 'Lucida Console', 'Courier New', Courier, monospace;
@@ -232,6 +232,10 @@ $kss-nav-delimiter: ") ";
 
 #kss-node {
 
+	.kss-nav {
+		text-transform:capitalize;
+	}
+
 	.kss-doc-title {
 		margin: 0;
 	}
@@ -259,6 +263,7 @@ $kss-nav-delimiter: ") ";
 	}
 
 	.kss-nav__ref {
+		display:none;
 		color: $kss-colors-body;
 
 		&:after {
@@ -289,9 +294,10 @@ $kss-nav-delimiter: ") ";
 				border-top:1px solid $kss-border-color;
 			}
 
-			.kss-nav__menu-child {
-				padding:0 20px 20px 20px;
-			}
+		}
+
+		.kss-nav__menu-item.is-active .kss-nav__menu-item__link {
+			background:$kss-accent-bg;
 		}
 
 		.kss-nav__menu-item:last-child {
@@ -302,7 +308,12 @@ $kss-nav-delimiter: ") ";
 			display: block;
 			list-style-type: none; 
 			margin: 0;
-			padding: 0;
+			padding:20px;
+
+			.kss-nav__menu-child-item__link {
+				display:block;
+				padding:5px 0;
+			}
 		}
 
 		.kss-nav__ref:after {
@@ -394,7 +405,7 @@ $kss-nav-delimiter: ") ";
 		margin: -10px -10px 10px -10px;
 		padding: 10px;
 		border-bottom: 1px solid $kss-border-color;
-		background-color: #eee;
+		background-color: $kss-accent-bg;
 		font-weight: bold;
 	}
 	.kss-modifier__default-name {
