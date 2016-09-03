@@ -26,7 +26,7 @@ How to use this template
 kss-node <sourcedir> --template path/to/templatefolder
 ```
 
-7. Alternatively if you're using Gulp you can set up a task to compile your style guide by adapting the below:
+Alternatively if you're using Gulp you can set up a task to compile your style guide by adapting the below:
 
 ```
 var options = {};
