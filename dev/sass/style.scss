@@ -374,12 +374,17 @@ $kss-nav-delimiter: ") ";
 		margin-bottom: ($kss-vertical-rhythm * 2);
 	}
 
+	.kss-section.kss-component > .kss-style:first-child {
+		border-bottom:1px solid #cecece;
+		margin-bottom:$kss-vertical-rhythm;
+	}
+
 	.kss-title {
 		margin-bottom: 0;
 	}
 
 	.kss-title__ref {
-		display: block;
+		display: none;
 		font-size: $kss-font-size;
 		line-height: $kss-font-size;
 		color:$kss-colors-body-light;
@@ -430,8 +435,7 @@ $kss-nav-delimiter: ") ";
 	}
 
 	.kss-modifier__wrapper {
-		border: 1px solid $kss-border-color;
-		padding: 10px;
+		margin: 0 0 ($kss-vertical-rhythm - 1px) 0;
 	}
 	.kss-modifier__heading {
 		margin: -10px -10px 10px -10px;
@@ -523,12 +527,11 @@ $kss-nav-delimiter: ") ";
 	/* Specify class=linenums on a pre to get line numbering */
 	ol.linenums {
 		margin: 0;
-		padding: 0 0 3px 0;
+		padding: 0;
 		list-style-type: none;
 
 		li {
 			min-height: $kss-vertical-rhythm;
-			border-bottom: 1px solid $kss-border-color;
 			padding: 0 10px;
 			background: #fff;
 
