@@ -9,13 +9,13 @@ Screenshot
 
 <p align="center">
    <img width="750" height="418" src="https://raw.githubusercontent.com/WebDevLuke/kss-orion-theme/master/misc/screen.png" style="border:1px solid #ddd;">
-  <p align="center">##A flat simplistic theme for kss-node</p>
 </p>
+
 
 How to use this template
 --------------------------
-1. Install kss-node. Type `npm install kss`.
-2. git clone https://github.com/WebDevLuke/kss-orion-theme.git and copy the "template" folder into your working directory.
+1. Install kss-node. Type `npm install kss` or `npm install -g kss` for global CLI.
+2. git clone https://github.com/WebDevLuke/kss-orion-theme.git and copy the "kss-orion-theme" folder into your working style guide directory.
 3. Run `kss-node` command with `--template` option, like below.
 
 
